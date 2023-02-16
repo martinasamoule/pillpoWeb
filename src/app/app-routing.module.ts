@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAdminsComponent } from './components/add-admins/add-admins.component';
 import { AdminsDataComponent } from './components/admins-data/admins-data.component';
 import { ContentCreatorComponent } from './components/content-creator/content-creator.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
     children: [
       { path: 'VideoReview', component: VideoReviewComponent },
       { path: 'ContentCreators', component: ContentCreatorComponent },
-      { path: 'AdminsData' , component: AdminsDataComponent}
+      { path: 'AdminsData' , component: AdminsDataComponent},
+      { path: 'AddAdmins' , component:AddAdminsComponent }
     ]
   },
   {path: '**', component: NotfoundComponent}

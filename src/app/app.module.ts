@@ -45,6 +45,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AdminsDataComponent } from './components/admins-data/admins-data.component';
+import { AddAdminsComponent } from './components/add-admins/add-admins.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { AdminsDataComponent } from './components/admins-data/admins-data.compon
     LoginComponent,
     MainlayoutComponent,
     NotfoundComponent,
-    AdminsDataComponent
+    AdminsDataComponent,
+    AddAdminsComponent
   ],
   imports: [
     BrowserModule,
