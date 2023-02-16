@@ -1,0 +1,66 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6 LoginImagePart d-flex justify-content-center">
+            <img src="assets\Group 48095483.png" class="logoImage">
+        </div>
+      <div class="col-md-6">
+        <div class="m-5 mt-0 ">
+        </div>
+        
+
+        <div class="LoginbodyContact">
+            <div class="row mt-4">
+              <div class=" col-10 ">
+                <p class="text-black fw-bold fs-5 mb-3">
+                  Hello Again !
+                </p>
+                <p class="text-black fs-6 ms-1">Welcome Back</p>
+                <hr />
+                <form class="row g-3 needs-validation d-flex justify-content-center" [formGroup]="LoginForm" (ngSubmit)="SubmitForm()">
+                  <div class="d-flex justify-content-center">
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 col-md-5" role="alert"
+                      *ngIf="ErrorShow">
+                      <strong>Error!</strong> {{ErrorMessage}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                        (click)="ErrorShow=false"></button>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-8 col-8 flex-column">
+                    <input type="email" class="form-control mt-3 col-12" id="Email" name="email" placeholder="Enter your email"
+                      [class.is-invalid]="Email?.invalid" [class.is-valid]="Email?.valid" formControlName="email" />
+                    <div class="alert alert-danger col-12" [hidden]=" Email?.valid ||Email?.untouched">
+                      <small *ngIf="Email?.errors?.['required']">
+                        Email is required
+                      </small>
+                    </div>
+                  </div>
+    
+                  <div class="col-md-8 col-lg-8 col-8 flex-column">
+                    <input type="password" class="form-control mt-3 col-12" id="PassInput" name="password"
+                      placeholder="Enter password" formControlName="password" [class.is-invalid]="Password?.invalid"
+                      [class.is-valid]="Password?.valid" />
+                    <div class="alert alert-danger col-12" [hidden]="Password?.valid || Password?.untouched">
+                      <small *ngIf="Password?.errors?.['required']">
+                        Password is required
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-4">
+                    <button class="btn col-lg-12 mt-3 fw-bold loginBtn" [disabled]="LoginForm.invalid" >
+                      Login
+                    </button>
+                  </div>
+                 
+    
+                </form>
+                <div class="row d-flex justify-content-center ">
+                 <div class="col-md-6 col-lg-6 col-sm-6 d-flex justify-content-center ">
+                    <button type="button" class="btn btn-link text-black btn col-lg-12 mt-3">Forget Password</button>
+                  </div></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

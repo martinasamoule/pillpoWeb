@@ -1,0 +1,90 @@
+<mat-sidenav-container class="sidebar-container" >
+    <mat-sidenav  [(opened)]="opened" mode="side" color="warn" role="navigation" class="sidenav">
+      <div class="mainbackground">
+        <ul>
+          <div >
+            <div class="user"  >
+              <img src="assets\user4-128x128.jpg" alt="useriImg" class="me-5">
+            </div>
+            <div class="d-flex flex-column ">
+              <div class="d-flex justify-content-center m-2 fs-4">Welcome</div>
+              <div class="d-flex justify-content-center m-2 fs-3">Martina samoule</div>
+            </div>
+            
+          </div>
+  
+  
+          <li routerLinkActive="active" *ngFor="let menuItem of menuItems">
+            <a [routerLink]="[menuItem.path]" active>
+              <mat-icon>{{ menuItem.icon }}</mat-icon>
+              <span class="title">{{ menuItem.title }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+  
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <ng-content select="ng-container"></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+<!-- <ul class="sidebarContact">
+  <div>
+    <div class="user">
+      <img src="assets\user4-128x128.jpg" alt="useriImg" class="me-5" />
+    </div>
+    <div class="d-flex flex-column">
+      <div class="m-2 fs-4">Welcome</div>
+      <div class="m-2 fs-3">Martina samoule</div>
+    </div>
+  </div>
+
+  <li routerLinkActive="active" *ngFor="let menuItem of menuItems">
+    <a type="button"
+    class="btn btn-lg btn-link text-light"
+    [mdbPopover]= "VideoReviewing"
+    placement="right">
+      <mat-icon>{{ menuItem.icon }}</mat-icon>
+      <fa-icon [icon]="menuItem.icon" ></fa-icon>
+      <span class="title">{{ menuItem.title }}</span>
+    </a>
+  </li>
+  <mat-sidenav-content>
+    <ng-content select="ng-container"></ng-content>
+  </mat-sidenav-content>
+  
+  
+  <ng-template #Analytics><app-video-review></app-video-review></ng-template>
+  
+  <ng-template #VideoReviewing class="m-4"><app-video-review class="m-5"></app-video-review></ng-template>
+  
+  <ng-template #Payments><app-video-review></app-video-review></ng-template> -->
+  <!-- <li>
+      <a
+      type="button"
+      class="btn btn-lg btn-transparent"
+      [mdbPopover]="videoreview"
+      mdbPopoverTitle="Popover title"
+      placement="right"
+        
+      >
+        Popover on right
+      </a>
+      <ng-template #videoreview ><app-video-review></app-video-review></ng-template>
+  </li>
+  <li>
+    <button
+    type="button"
+    class="btn btn-lg btn-transparent"
+    [mdbPopover]="videoreview"
+    placement="right"
+      
+    >
+      Popover on right
+    </button>
+    <ng-template #videoreview ><app-video-review></app-video-review></ng-template>
+  </li> -->
+<!-- </ul> -->

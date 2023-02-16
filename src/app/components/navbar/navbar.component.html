@@ -1,0 +1,35 @@
+<!-- tobar  -->
+<div class="topbar">
+      <div class="input-group searchBar m-5">
+        <input type="text" class="form-control "  placeholder="search" />
+        <span class="input-group-text bg-light">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </span>
+      </div>
+      <div class="buttonsSection ">
+        <button class="bg-dark text-light m-2 mt-3"
+            [matBadge]="notificationNumber" matBadgePosition="before" matBadgeColor="warn"
+            [matMenuTriggerFor]="notificationMenu" (click)="toggleNotificationBadge()" 
+            [matBadgeHidden]="hideNotification" mat-mini-fab >
+            <fa-icon [icon]="faBell" ></fa-icon>
+        </button>
+        <mat-menu #notificationMenu="matMenu" class="mt-1 me-3">
+          <div class="user-container" *ngFor="let notification of notificationsList">
+            <div class="user-profile d-flex  align-items-center fw-bold" mat-menu-item>
+              <span class="title">{{notification.title}}</span>
+            </div>
+            <mat-divider class="mt-3 mb-3"></mat-divider>
+          </div>
+        </mat-menu> 
+        <button class="bg-dark text-light m-2" mat-mini-fab [matMenuTriggerFor]="settingMenu">
+          <fa-icon [icon]="faWrench" ></fa-icon>
+        </button>
+      <mat-menu #settingMenu = "matMenu" class="mt-1 me-3">
+        <div class="user-container" >
+          <div class="user-profile d-flex  align-items-center fw-bold" mat-menu-item (click)="Logout()">
+            <span class="title" ><mat-icon>exit_to_app</mat-icon>Logout</span>
+          </div>
+        </div>
+      </mat-menu> 
+      </div>
+  </div>

@@ -1,0 +1,93 @@
+<section class="">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="card content">
+                    <div class="card-header bg-white ">
+                        <div class="card-header border-bottom-0 d-flex flex-row justify-content-between">
+                            <div class="input-group searchBar">
+                                <input type="text" class="form-control" placeholder="search">
+                                <span class="input-group-text searchSpan">
+                                    <fa-icon [icon]="faSearch"></fa-icon>
+                                </span>
+                            </div>
+
+                            <!-- <button type="button" class="btn btn-secondary d-flex flex-row fs-6"
+                                [matMenuTriggerFor]="filterCreators">
+                                <mat-icon class="filterIcon me-1">filter_list</mat-icon> Filter</button>
+                            <mat-menu #filterCreators="matMenu" #filterContact (change)="filterContactCreators(filterContact)">
+                                <button mat-menu-item class="text-primary" (change)="filterContactCreators('All')">
+                                    <mat-icon class="text-primary">all_inclusive</mat-icon>All</button>
+                                <button mat-menu-item class="text-success" (change)="filterContactCreators('active')">
+                                    <mat-icon class="text-success">check</mat-icon>Active</button>
+                                <button mat-menu-item class="text-danger" (change)="filterContactCreators('suspended')">
+                                    <mat-icon class="text-danger">cancel</mat-icon>Suspended</button>
+                            </mat-menu> -->
+                                <!-- <select  #filterContact class="form-select" (change)="filterContactCreators(filterContact.value)" >
+                                    
+                                <option  class="text-primary" value="all">All</option>
+                                <option  class="text-success" value="active">Active</option>
+                                <option  class="text-danger" value="suspended">Suspended</option>
+                                  </select> -->
+                                  <mat-form-field  class="bg-secondary">
+                                    <mat-label class="ms-1 mt-3">
+                                        <mat-icon class="filterIcon me-1">filter_list</mat-icon> Filter</mat-label>
+                                <mat-select  [(value)]="selected" (valueChange)="filterContactCreators(selected)">
+                                  <mat-option value="All" class="text-primary mt-1">All </mat-option>
+                                  <mat-option value="active" class="text-success mt-1" >Active</mat-option>
+                                  <mat-option value="suspended"class="text-danger mt-1">Suspended</mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                            
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <table class="table pb-0 fs-6 fw-bolder">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th style="width: 30px"></th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Account state</th>
+                                    <th>actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="
+                                    let videoCreator of videoCreatorsList
+                                    let i = index">
+                                    <td class="fw-bold">{{i+1}}</td>
+                                    <td><img [src]="videoCreator.photo_path" class="videoCreatorImage" /></td>
+                                    <td class="fw-bold">{{ videoCreator.name }} </td>
+                                    <td class="fw-bold">{{ videoCreator.email}} </td>
+                                    <td class="fw-bold">{{ videoCreator.phone_number}}</td>
+                                    <td class='text-success fw-bold' *ngIf="videoCreator.account_state=='active'">
+                                        {{videoCreator.account_state}}</td>
+
+                                    <td class='text-danger fw-bold' *ngIf="videoCreator.account_state!='active'">
+                                        {{videoCreator.account_state}}</td>
+                                    <td><mat-icon [matMenuTriggerFor]="optionsMenu">more_vert</mat-icon></td>
+                                    <mat-menu #optionsMenu="matMenu">
+                                        <button mat-menu-item class="text-danger"><mat-icon class="text-danger"
+                                                (click)="openDialog('Delete')">delete</mat-icon>Delete</button>
+                                        <button mat-menu-item class="text-success"
+                                            *ngIf="videoCreator.account_state!='active'"
+                                            (click)="openDialog('Active')"><mat-icon
+                                                class="text-success">check</mat-icon>Active</button>
+                                        <button mat-menu-item class="text-danger"
+                                            *ngIf="videoCreator.account_state=='active'"
+                                            (click)="openDialog('Suspended')"><mat-icon
+                                                class="text-danger">cancel</mat-icon>Suspended</button>
+                                    </mat-menu>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

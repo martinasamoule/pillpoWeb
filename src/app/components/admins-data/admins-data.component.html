@@ -1,0 +1,62 @@
+<section class="">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="card content">
+                    <div class="card-header bg-white ">
+                        <div class="card-header border-bottom-0 d-flex flex-row justify-content-between">
+                            <p class="text-black fw-bold fs-6 mt-2">Admins</p>
+                            <button type="button" class="btn d-flex flex-row fs-6 addAdminBtn">
+                                 Add New <mat-icon>add</mat-icon></button>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <table class="table pb-0 fs-6 fw-bolder">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th style="width: 30px"></th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone number</th>
+                                    <th>Account state</th>
+                                    <th>actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="
+                                    let videoCreator of videoCreatorsList
+                                    let i = index">
+                                    <td class="fw-bold">{{i+1}}</td>
+                                    <td><img [src]="videoCreator.photo_path" class="videoCreatorImage" /></td>
+                                    <td class="fw-bold">{{ videoCreator.name }} </td>
+                                    <td class="fw-bold">{{ videoCreator.email}} </td>
+                                    <td class="fw-bold">{{ videoCreator.phone_number}}</td>
+                                    <td class='text-success fw-bold' *ngIf="videoCreator.account_state=='active'">
+                                        {{videoCreator.account_state}}</td>
+
+                                    <td class='text-danger fw-bold' *ngIf="videoCreator.account_state!='active'">
+                                        {{videoCreator.account_state}}</td>
+                                    <td><mat-icon [matMenuTriggerFor]="optionsMenu">more_vert</mat-icon></td>
+                                    <mat-menu #optionsMenu="matMenu">
+                                        <button mat-menu-item class="text-danger"><mat-icon class="text-danger"
+                                                (click)="openDialog('Delete')">delete</mat-icon>Delete</button>
+                                        <button mat-menu-item class="text-success"
+                                            *ngIf="videoCreator.account_state!='active'"
+                                            (click)="openDialog('Active')"><mat-icon
+                                                class="text-success">check</mat-icon>Active</button>
+                                        <button mat-menu-item class="text-danger"
+                                            *ngIf="videoCreator.account_state=='active'"
+                                            (click)="openDialog('Suspended')"><mat-icon
+                                                class="text-danger">cancel</mat-icon>Suspended</button>
+                                    </mat-menu>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

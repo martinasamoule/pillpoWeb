@@ -1,0 +1,21 @@
+.LoginbodyContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
+  }
+  .LoginImagePart {
+    background-image: url("../../../assets/Left Content.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .logoImage{
+    width: 30%;
+    height: 10%;
+    margin-top: 45%;
+  }
+  .loginBtn{
+    background-color: #F32F64;
+  }
+  
